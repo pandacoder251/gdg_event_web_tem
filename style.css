@@ -1204,7 +1204,7 @@ body {
 
 @keyframes popIn {
     0% {
-        transform: translateY(12px) scale(.98);
+        transform: translateY(0) scale(.98);
         opacity: 0
     }
 
