@@ -11,11 +11,22 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="#">Techie House</a>
+        <button id="menu-btn" class="hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav class="nav">
           <a href="#features">Features</a>
           <a href="#pricing">Pricing</a>
           <a href="#testimonials">Testimonials</a>
           <a href="#get-started" class="cta">Get Started</a>
+        </nav>
+        <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#get-started">Get Started</a>
         </nav>
       </div>
     </header>
@@ -23,12 +34,12 @@
       <!-- Hero -->
       <section class="hero" id="home" aria-label="Hero">
         <div class="container hero-grid">
-          <div class="hero-content">
-            <h1 class="hero-title">Build faster. Scale smarter.</h1>
-            <p class="hero-sub">NovaStack gives teams the APIs, deployment, and tooling they need to ship production-ready web apps in days — not months.</p>
+          <div class="hero-content reveal">
+            <h1 class="hero-title neon">Room for Tech Nerds</h1>
+            <p class="hero-sub">Techie House — curated gear, kits and cozy corners for makers, hackers and weekend build-warriors.</p>
             <p class="hero-ctas">
-              <a class="btn btn-primary" href="#get-started">Get Started</a>
-              <a class="btn btn-outline" href="#features">Explore Features</a>
+              <a class="btn btn-primary neon-btn" href="#get-started">Shop Now</a>
+              <a class="btn btn-outline" href="#features">See Collections</a>
             </p>
             <ul class="hero-stats" aria-hidden="true">
               <li><strong>99.99%</strong> uptime</li>
@@ -37,15 +48,50 @@
             </ul>
           </div>
           <div class="hero-visual" aria-hidden="true">
-            <div class="visual-card">
-              <svg width="100%" height="220" viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App preview">
-                <rect x="12" y="12" width="576" height="196" rx="12" fill="#0f1724" />
-                <rect x="28" y="28" width="240" height="164" rx="8" fill="#0b1220" />
-                <rect x="284" y="38" width="288" height="40" rx="6" fill="#ffffff1a" />
-                <rect x="284" y="90" width="200" height="90" rx="6" fill="#ffffff13" />
+            <div class="visual-card neon-visual">
+              <!-- Neon SVG: animated circuit / glow -->
+              <svg class="neon-svg" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neon circuit">
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0%" stop-color="#0ef"/>
+                    <stop offset="50%" stop-color="#8b5cf6"/>
+                    <stop offset="100%" stop-color="#06b6d4"/>
+                  </linearGradient>
+                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <rect x="8" y="8" width="584" height="204" rx="12" fill="#031018" />
+                <g stroke="url(#g1)" stroke-width="3" fill="none" filter="url(#glow)">
+                  <path class="path-anim" d="M40 60 h120 a8 8 0 0 1 8 8 v24" stroke-linecap="round"/>
+                  <circle class="pulse" cx="180" cy="92" r="6" fill="#0ef" />
+                  <path class="path-anim" d="M200 92 h140 v-12 h60 v84 h-60 v-12 h-140" stroke-linecap="round"/>
+                  <circle class="pulse" cx="360" cy="88" r="6" fill="#8b5cf6" />
+                  <path class="path-anim" d="M360 172 h120 a8 8 0 0 0 8-8 v-48" stroke-linecap="round"/>
+                </g>
               </svg>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Showcase / Images -->
+      <section class="container showcase reveal" id="showcase" aria-label="Showcase">
+        <h2 class="section-title">Featured visuals</h2>
+        <p class="section-sub">A few snaps from the Techie House community and inspired builds.</p>
+        <div class="showcase-grid">
+          <figure class="showcase-item">
+            <img src="https://www.cnet.com/a/img/resize/455192cc4d6f11c33c5fa2082bc0ad64e2115c6f/hub/2025/10/31/10045e57-2777-4e62-88cd-d990b3cb69f7/gettyimages-2179712111.jpg?auto=webp&fit=crop&height=720&width=1280" alt="Maker workspace with components" loading="lazy">
+            <figcaption>Weekend workspace — soldering and prototyping.</figcaption>
+          </figure>
+          <figure class="showcase-item">
+            <img src="https://img.freepik.com/premium-photo/3d-render-metaverse-technology-background-with-blockchain-network-connections_685067-2639.jpg?w=2000" alt="Abstract metaverse connections illustration" loading="lazy">
+            <figcaption>Futuristic builds and metaverse concepts.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -53,7 +99,7 @@
       <section class="container features" id="features">
         <h2 class="section-title">Everything you need</h2>
         <p class="section-sub">A small set of powerful features that let you focus on product, not plumbing.</p>
-        <div class="cards">
+        <div class="cards reveal">
           <article class="card">
             <h3>Realtime APIs</h3>
             <p>Push updates instantly to users with low-latency websockets and pub/sub primitives.</p>
@@ -65,6 +111,7 @@
           <article class="card">
             <h3>Developer Tools</h3>
             <p>CLI, SDKs, and a local dev environment — fast bootstrapping and smooth CI/CD.</p>
+          </article>
           <article class="card">
             <h3>Security & Compliance</h3>
             <p>Built-in auth, role-based access, and enterprise-grade compliance options.</p>
@@ -73,8 +120,8 @@
 
       <!-- Pricing / Benefits -->
       <section class="container pricing" id="pricing" aria-label="Pricing">
-        <h2 class="section-title">Simple pricing, flexible plans</h2>
-        <p class="section-sub">Pay for what you use. Scale when you need it.</p>
+  <h2 class="section-title">Simple pricing, flexible plans</h2>
+  <p class="section-sub">Pay for what you use. Start small, scale big.</p>
         <div class="pricing-grid">
           <div class="price-card">
             <h3>Starter</h3>
@@ -112,25 +159,35 @@
 
   <!-- Testimonials -->
       <section class="container testimonials" id="testimonials" aria-label="Testimonials">
-        <h2 class="section-title">Loved by teams</h2>
-        <p class="section-sub">Developers and product teams who shipped faster with NovaStack.</p>
-        <div class="testimonial-wrap">
-          <button class="t-prev" aria-label="Previous testimonial">◀</button>
-          <div class="testimonials-slider" data-index="0">
-            <blockquote class="testimonial">
-              <p>"NovaStack cut our time-to-market in half. Integrations were frictionless and the realtime APIs just worked."</p>
-              <footer>— Priya K., CTO at Orbit</footer>
-            </blockquote>
-            <blockquote class="testimonial">
+        <h2 class="section-title">Community favorites</h2>
+        <p class="section-sub">What makers and nerds say about shopping at Techie House.</p>
+        <div class="flashcards reveal" id="flashcards" aria-live="polite">
+          <article class="flashcard" tabindex="0" aria-label="Testimonial by Priya K.">
+            <div class="face front">
+              <p>"Techie House cut our time-to-market in half. Integrations were frictionless and the realtime APIs just worked."</p>
+            </div>
+            <div class="face back">
+              <p>— Priya K., CTO at Orbit</p>
+            </div>
+          </article>
+
+          <article class="flashcard" tabindex="0" aria-label="Testimonial by Marco S.">
+            <div class="face front">
               <p>"We scaled to tens of thousands of concurrent users without touching infra configs. Huge win for our team."</p>
-              <footer>— Marco S., VP Eng at Sprout Labs</footer>
-            </blockquote>
-            <blockquote class="testimonial">
-              <p>"Top-notch developer experience and excellent docs — onboarding was a breeze."</p>
-              <footer>— Elena G., Product Lead at Kaleido</footer>
-            </blockquote>
-          </div>
-          <button class="t-next" aria-label="Next testimonial">▶</button>
+            </div>
+            <div class="face back">
+              <p>— Marco S., VP Eng at Sprout Labs</p>
+            </div>
+          </article>
+
+          <article class="flashcard" tabindex="0" aria-label="Testimonial by Elena G.">
+            <div class="face front">
+              <p>"Top-notch selection, friendly packaging, and the neon stickers made my desk famous."</p>
+            </div>
+            <div class="face back">
+              <p>— Elena G., Hardware Hacker</p>
+            </div>
+          </article>
         </div>
   </section>
 
@@ -170,7 +227,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <small>© <span id="year"></span> NovaStack — All rights reserved.</small>
+  <small>© <span id="year"></span> Techie House — All rights reserved.</small>
         <nav class="footer-nav">
           <a href="#">Terms</a>
           <a href="#">Privacy</a>

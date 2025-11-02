@@ -1,6 +1,6 @@
-# # NovaStack Landing Page (gdg_event_web_tem)
+# # Techie House Landing Page (gdg_event_web_tem)
 
-This workspace contains a small static landing page prototype (HTML/CSS/JS) for the fictional product "NovaStack".
+This workspace contains a small static landing page prototype (HTML/CSS/JS) for the fictional product "Techie House".
 
 Files
 - `index.html` — the landing page
