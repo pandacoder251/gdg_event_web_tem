@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Techie House</title>
+    <meta name="description" content="Techie House — A modern, turn-key platform for building realtime, scalable web apps quickly." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">Techie House</a>
+        <nav class="nav">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#get-started" class="cta">Get Started</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="home" aria-label="Hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Build faster. Scale smarter.</h1>
+            <p class="hero-sub">NovaStack gives teams the APIs, deployment, and tooling they need to ship production-ready web apps in days — not months.</p>
+            <p class="hero-ctas">
+              <a class="btn btn-primary" href="#get-started">Get Started</a>
+              <a class="btn btn-outline" href="#features">Explore Features</a>
+            </p>
+            <ul class="hero-stats" aria-hidden="true">
+              <li><strong>99.99%</strong> uptime</li>
+              <li><strong>Realtime</strong> APIs</li>
+              <li><strong>Pay as you grow</strong></li>
+            </ul>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-card">
+              <svg width="100%" height="220" viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App preview">
+                <rect x="12" y="12" width="576" height="196" rx="12" fill="#0f1724" />
+                <rect x="28" y="28" width="240" height="164" rx="8" fill="#0b1220" />
+                <rect x="284" y="38" width="288" height="40" rx="6" fill="#ffffff1a" />
+                <rect x="284" y="90" width="200" height="90" rx="6" fill="#ffffff13" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="container features" id="features">
+        <h2 class="section-title">Everything you need</h2>
+        <p class="section-sub">A small set of powerful features that let you focus on product, not plumbing.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Realtime APIs</h3>
+            <p>Push updates instantly to users with low-latency websockets and pub/sub primitives.</p>
+          </article>
+          <article class="card">
+            <h3>Scalable Infrastructure</h3>
+            <p>Autoscaling compute and global edge delivery so your app stays fast as traffic grows.</p>
+          </article>
+          <article class="card">
+            <h3>Developer Tools</h3>
+            <p>CLI, SDKs, and a local dev environment — fast bootstrapping and smooth CI/CD.</p>
+          <article class="card">
+            <h3>Security & Compliance</h3>
+            <p>Built-in auth, role-based access, and enterprise-grade compliance options.</p>
+        </div>
+      </section>
+
+      <!-- Pricing / Benefits -->
+      <section class="container pricing" id="pricing" aria-label="Pricing">
+        <h2 class="section-title">Simple pricing, flexible plans</h2>
+        <p class="section-sub">Pay for what you use. Scale when you need it.</p>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Starter</h3>
+            <p class="price">Free</p>
+            <ul>
+              <li>Up to 3 projects</li>
+              <li>Community support</li>
+              <li>Basic analytics</li>
+            </ul>
+            <a class="btn btn-primary" href="#get-started">Start Free</a>
+          </div>
+          <div class="price-card popular">
+            <div class="badge">Popular</div>
+            <h3>Pro</h3>
+            <p class="price">$29 / mo</p>
+            <ul>
+              <li>Unlimited projects</li>
+              <li>Realtime APIs & autoscaling</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn btn-primary" href="#get-started">Choose Pro</a>
+          </div>
+          <div class="price-card">
+            <h3>Enterprise</h3>
+            <p class="price">Custom</p>
+            <ul>
+              <li>Dedicated infrastructure</li>
+              <li>Compliance & SSO</li>
+              <li>Account manager</li>
+            </ul>
+            <a class="btn btn-outline" href="#get-started">Contact Sales</a>
+          </div>
+        </div>
+  </section>
+
+  <!-- Testimonials -->
+      <section class="container testimonials" id="testimonials" aria-label="Testimonials">
+        <h2 class="section-title">Loved by teams</h2>
+        <p class="section-sub">Developers and product teams who shipped faster with NovaStack.</p>
+        <div class="testimonial-wrap">
+          <button class="t-prev" aria-label="Previous testimonial">◀</button>
+          <div class="testimonials-slider" data-index="0">
+            <blockquote class="testimonial">
+              <p>"NovaStack cut our time-to-market in half. Integrations were frictionless and the realtime APIs just worked."</p>
+              <footer>— Priya K., CTO at Orbit</footer>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p>"We scaled to tens of thousands of concurrent users without touching infra configs. Huge win for our team."</p>
+              <footer>— Marco S., VP Eng at Sprout Labs</footer>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p>"Top-notch developer experience and excellent docs — onboarding was a breeze."</p>
+              <footer>— Elena G., Product Lead at Kaleido</footer>
+            </blockquote>
+          </div>
+          <button class="t-next" aria-label="Next testimonial">▶</button>
+        </div>
+  </section>
+
+  <!-- Get Started / Contact -->
+      <section class="container get-started" id="get-started" aria-label="Get Started">
+        <div class="get-grid">
+          <div>
+            <h2>Ready to ship?</h2>
+            <p>Tell us a bit about your project and we'll help you get set up.</p>
+            <ul class="benefits">
+              <li>Fast setup with SDKs</li>
+              <li>Friendly support</li>
+              <li>Free tier to experiment</li>
+            </ul>
+          </div>
+          <form id="contact-form" class="contact-form" novalidate>
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="4"></textarea>
+            </label>
+            <div class="form-row">
+              <button class="btn btn-primary" type="submit">Request Invite</button>
+              <button class="btn btn-outline" type="button" id="demo-btn">Schedule Demo</button>
+            </div>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>© <span id="year"></span> NovaStack — All rights reserved.</small>
+        <nav class="footer-nav">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
