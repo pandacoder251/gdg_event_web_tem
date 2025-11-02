@@ -40,6 +40,29 @@
                 <a href="#get-started">Get Started</a>
             </nav>
         </div>
+        <!-- Header-only neon line (fixed to header) -->
+        <div class="header-neon" aria-hidden="true">
+            <svg class="neon-svg" viewBox="0 0 900 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <defs>
+                    <linearGradient id="hg1" x1="0" x2="1">
+                        <stop offset="0%" stop-color="#0ef" />
+                        <stop offset="45%" stop-color="#7c5cf6" />
+                        <stop offset="75%" stop-color="#06b6d4" />
+                        <stop offset="100%" stop-color="#22d3ee" />
+                    </linearGradient>
+                    <filter id="hglow" x="-60%" y="-60%" width="220%" height="220%">
+                        <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <g fill="none" stroke="url(#hg1)" stroke-width="3" filter="url(#hglow)">
+                    <path class="h-path" d="M20 36 H880" stroke-linecap="round" />
+                </g>
+            </svg>
+        </div>
     </header>
     <div class="progress-wrap" aria-hidden="true">
         <div id="progress-bar" class="progress-bar" style="width:0%"></div>
@@ -65,33 +88,9 @@
                 </div>
                 <div class="hero-visual" aria-hidden="true">
                     <div class="visual-card neon-visual">
-                        <!-- Neon SVG: animated circuit / glow -->
-                        <svg class="neon-svg" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img"
-                            aria-label="Neon circuit">
-                            <defs>
-                                <linearGradient id="g1" x1="0" x2="1">
-                                    <stop offset="0%" stop-color="#0ef" />
-                                    <stop offset="50%" stop-color="#8b5cf6" />
-                                    <stop offset="100%" stop-color="#06b6d4" />
-                                </linearGradient>
-                                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-                                    <feMerge>
-                                        <feMergeNode in="coloredBlur" />
-                                        <feMergeNode in="SourceGraphic" />
-                                    </feMerge>
-                                </filter>
-                            </defs>
-                            <rect x="8" y="8" width="584" height="204" rx="12" fill="#031018" />
-                            <g stroke="url(#g1)" stroke-width="3" fill="none" filter="url(#glow)">
-                                <path class="path-anim" d="M40 60 h120 a8 8 0 0 1 8 8 v24" stroke-linecap="round" />
-                                <circle class="pulse" cx="180" cy="92" r="6" fill="#0ef" />
-                                <path class="path-anim" d="M200 92 h140 v-12 h60 v84 h-60 v-12 h-140"
-                                    stroke-linecap="round" />
-                                <circle class="pulse" cx="360" cy="88" r="6" fill="#8b5cf6" />
-                                <path class="path-anim" d="M360 172 h120 a8 8 0 0 0 8-8 v-48" stroke-linecap="round" />
-                            </g>
-                        </svg>
+                        <!-- decorative visual card (circuit preview removed; header neon prefers the header) -->
+                        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&q=60&auto=format&fit=crop"
+                            alt="Decorative electronics workspace" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:12px;">
                     </div>
                 </div>
             </div>
@@ -305,7 +304,7 @@
             </div>
         </footer>
 
-    <script src="app.clean.js"></script>
+        <script src="app.clean.js"></script>
 </body>
 
 </html>

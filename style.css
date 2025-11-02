@@ -44,6 +44,50 @@ body {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent)
 }
 
+/* Make header fixed so neon line stays with header only */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1300;
+}
+
+/* reserve space so main content isn't hidden under fixed header */
+main { padding-top: 88px; }
+
+/* Header neon container */
+.header-neon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 40px;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+.header-neon .neon-svg { width: 100%; height: 28px; display: block; }
+.header-neon .h-path { stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 900; stroke-dashoffset: 900; animation: header-draw 2.4s ease forwards; }
+@keyframes header-draw { to { stroke-dashoffset: 0; } }
+
+/* Responsive tweaks for header neon */
+@media (max-width: 768px) {
+    main { padding-top: 84px; }
+    .header-neon { height: 28px; bottom: -4px; }
+    .header-neon .neon-svg { height: 20px; }
+    .header-neon .h-path { stroke-width: 2.4; }
+}
+
+@media (max-width: 480px) {
+    main { padding-top: 76px; }
+    .header-neon { height: 22px; bottom: -2px; }
+    .header-neon .neon-svg { height: 14px; }
+    .header-neon .h-path { stroke-width: 2; stroke-dasharray: 600; }
+}
+
 .header-inner {
     display: flex;
     align-items: center;
@@ -63,6 +107,57 @@ body {
     text-decoration: none;
     margin-left: 1rem
 }
+
+/* Desktop navbar animated underline */
+.nav a {
+    position: relative;
+    padding-bottom: 6px;
+    -webkit-tap-highlight-color: transparent;
+}
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), #8b5cf6);
+    transition: width .42s cubic-bezier(.2,.9,.3,1);
+}
+.nav a:hover::after,
+.nav a:focus::after {
+    width: 100%;
+}
+
+/* Keyboard-visible focus styles for accessibility */
+.nav a:focus-visible {
+    outline: none;
+    box-shadow: 0 3px 0 var(--accent);
+    border-radius: 4px;
+}
+.nav a:focus { outline: none; }
+
+.hamburger:focus-visible {
+    outline: 2px solid rgba(14,165,164,0.14);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+.mobile-menu a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 8px;
+    background: rgba(14,165,164,0.04);
+    color: #e6eef6;
+}
+
+/* Remove any pre-underline in mobile menu and disable the animated underline there */
+.mobile-menu a {
+    text-decoration: none;
+    position: relative;
+}
+.mobile-menu a::after { display: none; }
 
 .nav a.cta {
     background: transparent;
@@ -1113,7 +1208,7 @@ body {
 .neon-svg {
     width: 100%;
     height: 220px;
-    display: block
+    display: block;
 }
 
 .neon-svg .path-anim {
