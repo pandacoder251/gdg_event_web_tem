@@ -24,23 +24,105 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile menu toggle
+    // Mobile menu toggle with backdrop and accessible close (ESC / backdrop click)
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-            const showing = mobileMenu.classList.toggle('show');
-            menuBtn.classList.toggle('active');
-            menuBtn.setAttribute('aria-expanded', showing ? 'true' : 'false');
-            mobileMenu.setAttribute('aria-hidden', showing ? 'false' : 'true');
-        });
-        // close when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        // create a backdrop element (will be toggled via JS)
+        let mobileBackdrop = document.getElementById('mobile-backdrop');
+        if (!mobileBackdrop) {
+            mobileBackdrop = document.createElement('div');
+            mobileBackdrop.id = 'mobile-backdrop';
+            document.body.appendChild(mobileBackdrop);
+        }
+
+        function openMobileMenu() {
+            // if cart is open, close it to avoid overlapping layers
+            if (cartDrawer && cartDrawer.classList.contains('open')) {
+                cartDrawer.classList.remove('open');
+                cartDrawer.setAttribute('aria-hidden', 'true');
+                if (cartBtn) cartBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            mobileMenu.classList.add('show');
+            menuBtn.classList.add('active');
+            menuBtn.setAttribute('aria-expanded', 'true');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            mobileBackdrop.classList.add('visible');
+            // prevent body scroll while menu open
+            document.documentElement.style.overflow = 'hidden';
+            // focus first link for accessibility
+            const firstLink = mobileMenu.querySelector('a');
+            if (firstLink) firstLink.focus({ preventScroll: true });
+
+            // install focus-trap for keyboard users
+            installMenuFocusTrap();
+        }
+
+        function closeMobileMenu() {
             mobileMenu.classList.remove('show');
             menuBtn.classList.remove('active');
             menuBtn.setAttribute('aria-expanded', 'false');
             mobileMenu.setAttribute('aria-hidden', 'true');
+            mobileBackdrop.classList.remove('visible');
+            document.documentElement.style.overflow = '';
+            // return focus to the menu button
+            menuBtn.focus({ preventScroll: true });
+
+            // remove focus-trap
+            removeMenuFocusTrap();
+        }
+
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('show')) closeMobileMenu(); else openMobileMenu();
+        });
+
+        // close when clicking a link inside the menu
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', (e) => {
+            // allow normal navigation first, then close
+            setTimeout(closeMobileMenu, 120);
         }));
+
+        // close on backdrop click
+        mobileBackdrop.addEventListener('click', closeMobileMenu);
+
+        // close on ESC
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape' && mobileMenu.classList.contains('show')) {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    // --- Focus trap utilities for mobile menu ---
+    let _menuTrapHandler = null;
+    function installMenuFocusTrap() {
+        if (!mobileMenu) return;
+        const focusableSelector = 'a, button, input, textarea, [tabindex]:not([tabindex="-1"])';
+        const nodes = Array.from(mobileMenu.querySelectorAll(focusableSelector)).filter(n => !n.hasAttribute('disabled'));
+        if (!nodes.length) return;
+        const first = nodes[0];
+        const last = nodes[nodes.length - 1];
+
+        _menuTrapHandler = function (ev) {
+            if (ev.key !== 'Tab') return;
+            // shift+tab on first -> move to last
+            if (ev.shiftKey && document.activeElement === first) {
+                ev.preventDefault();
+                last.focus();
+            } else if (!ev.shiftKey && document.activeElement === last) {
+                ev.preventDefault();
+                first.focus();
+            }
+        };
+        document.addEventListener('keydown', _menuTrapHandler);
+    }
+
+    function removeMenuFocusTrap() {
+        if (_menuTrapHandler) {
+            document.removeEventListener('keydown', _menuTrapHandler);
+            _menuTrapHandler = null;
+        }
     }
 
     // Testimonials: flashcard boxes interaction (flip on click / keyboard)

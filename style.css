@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Unbounded:wght@400;700;900&display=swap');
 
 :root {
     --bg: #0f1724;
@@ -9,6 +9,9 @@
     --glass: rgba(255, 255, 255, 0.04);
     --card: #071026;
     --radius: 12px;
+    /* font stacks */
+    --font-sans: 'Poppins', Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --font-display: 'Unbounded', 'Playfair Display', serif;
 }
 
 * {
@@ -26,7 +29,7 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Poppins', Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-family: var(--font-sans);
     background: linear-gradient(180deg, #071022 0%, #071422 100%);
     color: #e6eef6;
     -webkit-font-smoothing: antialiased;
@@ -54,7 +57,9 @@ body {
 }
 
 /* reserve space so main content isn't hidden under fixed header */
-main { padding-top: 88px; }
+main {
+    padding-top: 88px;
+}
 
 /* Header neon container */
 .header-neon {
@@ -69,23 +74,66 @@ main { padding-top: 88px; }
     align-items: center;
     overflow: visible;
 }
-.header-neon .neon-svg { width: 100%; height: 28px; display: block; }
-.header-neon .h-path { stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 900; stroke-dashoffset: 900; animation: header-draw 2.4s ease forwards; }
-@keyframes header-draw { to { stroke-dashoffset: 0; } }
+
+.header-neon .neon-svg {
+    width: 100%;
+    height: 28px;
+    display: block;
+    position: absolute;
+}
+
+.header-neon .h-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: header-draw 2.4s ease forwards;
+}
+
+@keyframes header-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
 
 /* Responsive tweaks for header neon */
 @media (max-width: 768px) {
-    main { padding-top: 84px; }
-    .header-neon { height: 28px; bottom: -4px; }
-    .header-neon .neon-svg { height: 20px; }
-    .header-neon .h-path { stroke-width: 2.4; }
+    main {
+        padding-top: 84px;
+    }
+
+    .header-neon {
+        height: 28px;
+        bottom: -4px;
+    }
+
+    .header-neon .neon-svg {
+        height: 20px;
+    }
+
+    .header-neon .h-path {
+        stroke-width: 2.4;
+    }
 }
 
 @media (max-width: 480px) {
-    main { padding-top: 76px; }
-    .header-neon { height: 22px; bottom: -2px; }
-    .header-neon .neon-svg { height: 14px; }
-    .header-neon .h-path { stroke-width: 2; stroke-dasharray: 600; }
+    main {
+        padding-top: 76px;
+    }
+
+    .header-neon {
+        height: 22px;
+        bottom: -2px;
+    }
+
+    .header-neon .neon-svg {
+        height: 14px;
+    }
+
+    .header-neon .h-path {
+        stroke-width: 2;
+        stroke-dasharray: 600;
+    }
 }
 
 .header-inner {
@@ -99,7 +147,9 @@ main { padding-top: 88px; }
     font-weight: 700;
     color: var(--accent);
     text-decoration: none;
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    font-family: var(--font-sans);
+    letter-spacing: 0.6px;
 }
 
 .nav a {
@@ -114,6 +164,80 @@ main { padding-top: 88px; }
     padding-bottom: 6px;
     -webkit-tap-highlight-color: transparent;
 }
+
+/* ================= Mobile Improvements (override + polish) ================= */
+/* Improve stacking, larger tap targets, and drawer behavior for phones/tablets */
+@media (max-width: 768px) {
+    /* slightly tighter container on tablets */
+    .container {
+        padding: 1rem;
+        max-width: 720px;
+    }
+
+    /* header compactness */
+    .header-inner {
+        padding: .6rem 0;
+    }
+
+    .brand {
+        font-size: 1rem;
+    }
+
+    /* make hero stack cleanly and center text */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .hero-content {
+        order: 1;
+        text-align: center;
+        padding: 0 0.6rem;
+    }
+
+    .hero-visual {
+        order: 2;
+        display: block;
+        margin-top: .6rem;
+    }
+
+    .visual-card img,
+    .neon-svg {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    /* larger touch targets for CTAs and add-to-cart */
+    .btn,
+    .cart-btn,
+    .showcase-item .add-cart {
+        min-height: 44px;
+        padding: .75rem 1rem;
+    }
+
+    /* make showcase images a little shorter on tablets */
+    .showcase-item img {
+        height: 220px;
+    }
+
+    /* make cart drawer cover the full viewport width on smaller screens */
+    .cart-drawer {
+        width: 100%;
+        right: 0; /* keep right 0, use transform for the slide animation for smoother movement */
+        transform: translateX(100%);
+        transition: transform .28s cubic-bezier(.2, .9, .2, 1);
+    }
+
+    .cart-drawer.open {
+        transform: translateX(0);
+    }
+
+    /* progress bar less prominent on small screens */
+    .progress-wrap {
+        top: 72px;
+    }
+}
+
 .nav a::after {
     content: '';
     position: absolute;
@@ -123,8 +247,9 @@ main { padding-top: 88px; }
     width: 0%;
     border-radius: 2px;
     background: linear-gradient(90deg, var(--accent), #8b5cf6);
-    transition: width .42s cubic-bezier(.2,.9,.3,1);
+    transition: width .42s cubic-bezier(.2, .9, .3, 1);
 }
+
 .nav a:hover::after,
 .nav a:focus::after {
     width: 100%;
@@ -136,10 +261,13 @@ main { padding-top: 88px; }
     box-shadow: 0 3px 0 var(--accent);
     border-radius: 4px;
 }
-.nav a:focus { outline: none; }
+
+.nav a:focus {
+    outline: none;
+}
 
 .hamburger:focus-visible {
-    outline: 2px solid rgba(14,165,164,0.14);
+    outline: 2px solid rgba(14, 165, 164, 0.14);
     outline-offset: 4px;
     border-radius: 6px;
 }
@@ -148,7 +276,7 @@ main { padding-top: 88px; }
     outline: 2px solid var(--accent);
     outline-offset: 4px;
     border-radius: 8px;
-    background: rgba(14,165,164,0.04);
+    background: rgba(14, 165, 164, 0.04);
     color: #e6eef6;
 }
 
@@ -157,7 +285,10 @@ main { padding-top: 88px; }
     text-decoration: none;
     position: relative;
 }
-.mobile-menu a::after { display: none; }
+
+.mobile-menu a::after {
+    display: none;
+}
 
 .nav a.cta {
     background: transparent;
@@ -250,7 +381,7 @@ main { padding-top: 88px; }
 
 /* Cart button in HUD */
 .cart-btn {
-    background: linear-gradient(90deg,var(--accent),#7f5af0);
+    background: linear-gradient(90deg, var(--accent), #7f5af0);
     color: white;
     border: none;
     padding: .45rem .6rem;
@@ -260,8 +391,9 @@ main { padding-top: 88px; }
     align-items: center;
     cursor: pointer;
 }
+
 .cart-count {
-    background: rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
     padding: 0 .35rem;
     border-radius: 8px;
     font-weight: 700;
@@ -325,10 +457,14 @@ main { padding-top: 88px; }
 }
 
 .hero-title {
-    font-size: 2.1rem;
-    line-height: 1.05;
+    font-family: var(--font-sans);
+    font-size: 2.4rem;
+    line-height: 1.02;
     margin: 0 0 .75rem;
-    color: #eaf6f5
+    font-weight: 700;
+    /* keep a subtle accent for headings while using the same font */
+    color: #eaf6f5;
+    text-shadow: 0 6px 18px rgba(124,92,246,0.04);
 }
 
 .hero-sub {
@@ -376,9 +512,12 @@ main { padding-top: 88px; }
 }
 
 .section-title {
-    font-size: 1.4rem;
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
     color: #eaf6f5;
-    margin: 0 0 .25rem
+    margin: 0 0 .25rem;
+    align-items: center;
+    letter-spacing: 0.2px;
 }
 
 .section-sub {
@@ -599,6 +738,166 @@ main { padding-top: 88px; }
     }
 }
 
+@media (max-width:480px) {
+    /* very small phones: simplify header and visuals to avoid clutter */
+    .container {
+        padding: .75rem;
+    }
+
+    .brand {
+        font-size: .98rem;
+    }
+
+    .header-inner {
+        padding: .45rem 0;
+    }
+
+    /* hide the neon svg on very small screens to save vertical space */
+    .header-neon {
+        display: none;
+    }
+
+    main {
+        padding-top: 70px;
+    }
+
+    .hero-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-sub {
+        font-size: .95rem;
+    }
+
+    /* make showcase images compact */
+    .showcase-item img {
+        height: 160px;
+    }
+
+    .showcase-grid {
+        gap: .6rem;
+    }
+
+    /* ensure flashcards are single column */
+    .flashcards {
+        grid-template-columns: 1fr;
+    }
+
+    /* mobile nav interactions */
+    .nav a { display: none }
+    .hamburger { display: flex }
+
+    /* Make mobile menu a full-screen, centered panel for easier navigation.
+       Hidden by default (opacity/transform) and revealed when .show is applied. */
+    .mobile-menu {
+        display: flex;
+        position: fixed;
+        inset: 64px 12px 12px 12px; /* below header */
+        background: linear-gradient(180deg, rgba(2,6,23,0.98), rgba(2,6,23,0.96));
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        z-index: 1500;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px) scale(.995);
+        transition: opacity .28s ease, transform .28s ease;
+    }
+
+    .mobile-menu a {
+        font-size: 1.05rem;
+        padding: .9rem 1.1rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .mobile-menu.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+    }
+
+/* mobile menu backdrop */
+#mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.46);
+    z-index: 1490;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .28s ease;
+}
+#mobile-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+    /* badge area positioning tweak for phones */
+    .badge-toast {
+        right: 10px;
+        bottom: 80px;
+    }
+}
+
+/* Cart backdrop using pseudo-element on cart-drawer for small screens */
+@media (max-width:768px) {
+    .cart-drawer::before {
+        content: '';
+        position: fixed;
+        inset: 0 0 0 0;
+        background: rgba(0,0,0,0.48);
+        z-index: 1390; /* just below cart drawer */
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .28s ease;
+    }
+
+    .cart-drawer.open::before {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* Make primary CTAs and add-cart buttons full width on small screens */
+@media (max-width:640px) {
+    .hero-ctas .btn {
+        display: block;
+        width: 100%;
+        margin: .4rem 0;
+    }
+
+    .showcase-item .add-cart {
+        right: 12px;
+        left: 12px;
+        bottom: 12px;
+        top: auto;
+        width: auto;
+        display: block;
+        padding: .52rem .8rem; /* reduced to be less dominant on mobile */
+        font-size: .9rem;
+    }
+
+    .showcase-item figcaption {
+        left: 12px;
+        right: 12px;
+        bottom: 52px;
+    }
+}
+
+/* Tidy hero spacing for smaller phones */
+@media (max-width:420px) {
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-title { font-size: 1.1rem }
+    .hero-sub { font-size: .92rem }
+}
+
 /* Showcase images */
 .showcase-grid {
     display: grid;
@@ -642,16 +941,21 @@ main { padding-top: 88px; }
     position: absolute;
     right: 12px;
     top: 12px;
-    padding: .45rem .6rem;
-    border-radius: 10px;
+    padding: .32rem .48rem; /* visually smaller but still usable */
+    border-radius: 8px;
     border: none;
-    background: linear-gradient(90deg,var(--accent),#6b5bff);
+    background: linear-gradient(90deg, var(--accent), #6b5bff);
     color: white;
     cursor: pointer;
     font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1;
     z-index: 10;
 }
-.showcase-item .add-cart:active { transform: translateY(1px); }
+
+.showcase-item .add-cart:active {
+    transform: translateY(1px);
+}
 
 @media (max-width:980px) {
     .showcase-grid {
@@ -672,27 +976,54 @@ main { padding-top: 88px; }
     top: 0;
     width: 360px;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(20,20,27,0.98), rgba(10,10,12,0.98));
+    background: linear-gradient(180deg, rgba(20, 20, 27, 0.98), rgba(10, 10, 12, 0.98));
     color: white;
-    box-shadow: -20px 0 40px rgba(0,0,0,0.6);
-    transition: right .28s cubic-bezier(.2,.9,.2,1);
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.6);
+    transition: right .28s cubic-bezier(.2, .9, .2, 1);
     z-index: 1400;
     display: flex;
     flex-direction: column;
 }
-.cart-drawer.open { right: 0; }
+
+.cart-drawer.open {
+    right: 0;
+}
+
 .cart-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
-.cart-items { padding: 1rem; overflow: auto; flex: 1 1 auto; }
-.cart-item { display: flex; gap: .6rem; align-items: center; padding: .6rem 0; border-bottom: 1px dashed rgba(255,255,255,0.03); }
-.cart-item .title { font-weight:700; }
-.cart-item .qty { margin-left: auto; color: var(--muted); }
-.cart-footer { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.03); }
+
+.cart-items {
+    padding: 1rem;
+    overflow: auto;
+    flex: 1 1 auto;
+}
+
+.cart-item {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    padding: .6rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+}
+
+.cart-item .title {
+    font-weight: 700;
+}
+
+.cart-item .qty {
+    margin-left: auto;
+    color: var(--muted);
+}
+
+.cart-footer {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
 
 .get-started {
     padding: 3.5rem 0
@@ -1311,7 +1642,8 @@ main { padding-top: 88px; }
 
 /* small niceties */
 .brand {
-    letter-spacing: .6px
+    letter-spacing: .6px;
+    font-family: var(--font-sans);
 }
 
 .hero-stats li {
