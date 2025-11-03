@@ -1,310 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Techie House</title>
-    <meta name="description"
-        content="Techie House — A modern, turn-key platform for building realtime, scalable web apps quickly." />
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Techie House</title>
+    <meta name="description" content="Techie House — A modern, turn-key platform for building realtime, scalable web apps quickly." />
     <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="#">Techie House</a>
-            <div class="hud">
-                <div id="xp-counter" class="xp">XP: <span id="xp-value">0</span></div>
-                <button id="cart-btn" class="cart-btn" aria-label="Open cart" aria-haspopup="dialog"
-                    aria-expanded="false">
-                    🛒 <span id="cart-count" class="cart-count">0</span>
-                </button>
-            </div>
-            <button id="menu-btn" class="hamburger" aria-label="Open menu" aria-controls="mobile-menu"
-                aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#get-started" class="cta">Get Started</a>
-            </nav>
-            <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#get-started">Get Started</a>
-            </nav>
-        </div>
-        <!-- Header-only neon line (fixed to header) -->
-        <div class="header-neon" aria-hidden="true">
-            <svg class="neon-svg" viewBox="0 0 900 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-                <defs>
-                    <linearGradient id="hg1" x1="0" x2="1">
-                        <stop offset="0%" stop-color="#0ef" />
-                        <stop offset="45%" stop-color="#7c5cf6" />
-                        <stop offset="75%" stop-color="#06b6d4" />
-                        <stop offset="100%" stop-color="#22d3ee" />
-                    </linearGradient>
-                    <filter id="hglow" x="-60%" y="-60%" width="220%" height="220%">
-                        <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-                        <feMerge>
-                            <feMergeNode in="coloredBlur" />
-                            <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                    </filter>
-                </defs>
-                <g fill="none" stroke="url(#hg1)" stroke-width="3" filter="url(#hglow)">
-                    <path class="h-path" d="M20 36 H880" stroke-linecap="round" />
-                </g>
-            </svg>
-        </div>
+      <div class="container header-inner">
+        <a class="brand" href="#">Techie House</a>
+        <button id="menu-btn" class="hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#get-started" class="cta">Get Started</a>
+        </nav>
+        <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#get-started">Get Started</a>
+        </nav>
+      </div>
     </header>
-    <div class="progress-wrap" aria-hidden="true">
-        <div id="progress-bar" class="progress-bar" style="width:0%"></div>
-    </div>
     <main>
-        <!-- Hero -->
-        <section class="hero" id="home" aria-label="Hero">
-            <div class="container hero-grid">
-                <div class="hero-content reveal">
-                    <h1 class="hero-title neon">Room for Tech Nerds</h1>
-                    <p class="hero-sub">Techie House — curated gear, kits and cozy corners for makers, hackers and
-                        weekend build-warriors.</p>
-                    <p class="hero-mini">Earn XP by exploring — flip reviews, view features, and request a demo.</p>
-                    <p class="hero-ctas">
-                        <a class="btn btn-primary neon-btn" href="#get-started">Shop Now</a>
-                        <a class="btn btn-outline" href="#features">See Collections</a>
-                    </p>
-                    <ul class="hero-stats" aria-hidden="true">
-                        <li><strong>99.99%</strong> uptime</li>
-                        <li><strong>Realtime</strong> APIs</li>
-                        <li><strong>Pay as you grow</strong></li>
-                    </ul>
-                </div>
-                <div class="hero-visual" aria-hidden="true">
-                    <div class="visual-card neon-visual">
-                        <!-- decorative visual card (circuit preview removed; header neon prefers the header) -->
-                        <img src="https://th.bing.com/th/id/OIP.cSbv7vgGZsIhP6FOE-cyvwHaEK?w=281&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
-                            alt="Decorative electronics workspace" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:12px; position-anchor: inherit;">
-                    </div>
-                </div>
+      <!-- Hero -->
+      <section class="hero" id="home" aria-label="Hero">
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <h1 class="hero-title neon">Room for Tech Nerds</h1>
+            <p class="hero-sub">Techie House — curated gear, kits and cozy corners for makers, hackers and weekend build-warriors.</p>
+            <p class="hero-ctas">
+              <a class="btn btn-primary neon-btn" href="#get-started">Shop Now</a>
+              <a class="btn btn-outline" href="#features">See Collections</a>
+            </p>
+            <ul class="hero-stats" aria-hidden="true">
+              <li><strong>99.99%</strong> uptime</li>
+              <li><strong>Realtime</strong> APIs</li>
+              <li><strong>Pay as you grow</strong></li>
+            </ul>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-card neon-visual">
+              <!-- Neon SVG: animated circuit / glow -->
+              <svg class="neon-svg" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neon circuit">
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0%" stop-color="#0ef"/>
+                    <stop offset="50%" stop-color="#8b5cf6"/>
+                    <stop offset="100%" stop-color="#06b6d4"/>
+                  </linearGradient>
+                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <rect x="8" y="8" width="584" height="204" rx="12" fill="#031018" />
+                <g stroke="url(#g1)" stroke-width="3" fill="none" filter="url(#glow)">
+                  <path class="path-anim" d="M40 60 h120 a8 8 0 0 1 8 8 v24" stroke-linecap="round"/>
+                  <circle class="pulse" cx="180" cy="92" r="6" fill="#0ef" />
+                  <path class="path-anim" d="M200 92 h140 v-12 h60 v84 h-60 v-12 h-140" stroke-linecap="round"/>
+                  <circle class="pulse" cx="360" cy="88" r="6" fill="#8b5cf6" />
+                  <path class="path-anim" d="M360 172 h120 a8 8 0 0 0 8-8 v-48" stroke-linecap="round"/>
+                </g>
+              </svg>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- Showcase / Images -->
-        <section class="container showcase reveal" id="showcase" aria-label="Showcase">
-            <h2 class="section-title style">Featured visuals</h2>
-            <p class="section-sub">A few snaps from the Techie House community and inspired builds.</p>
-            <div class="showcase-grid">
-                <figure class="showcase-item">
-                    <img src="https://www.cnet.com/a/img/resize/455192cc4d6f11c33c5fa2082bc0ad64e2115c6f/hub/2025/10/31/10045e57-2777-4e62-88cd-d990b3cb69f7/gettyimages-2179712111.jpg?auto=webp&fit=crop&height=720&width=1280"
-                        alt="Maker workspace with components" loading="lazy">
-                    <figcaption>Weekend workspace — soldering and prototyping.</figcaption>
-                    <button class="add-cart" data-id="p1" data-title="Maker Workspace Photo" data-price="19">Add to cart
-                        — $19</button>
-                </figure>
-                <figure class="showcase-item">
-                    <img src="https://img.freepik.com/premium-photo/3d-render-metaverse-technology-background-with-blockchain-network-connections_685067-2639.jpg?w=2000"
-                        alt="Abstract metaverse connections illustration" loading="lazy">
-                    <figcaption>Futuristic builds and metaverse concepts.</figcaption>
-                    <button class="add-cart" data-id="p2" data-title="Metaverse Render" data-price="24">Add to cart —
-                        $24</button>
-                </figure>
-                <figure class="showcase-item">
-                    <img src="https://img.freepik.com/premium-photo/artistic-representation-interconnected-nodes_961875-392430.jpg"
-                        alt="Interconnected nodes artistic" loading="lazy">
-                    <figcaption>Interconnected nodes — community networks.</figcaption>
-                    <button class="add-cart" data-id="p3" data-title="Interconnected Nodes" data-price="14">Add to cart
-                        — $14</button>
-                </figure>
-                <figure class="showcase-item">
-                    <img src="https://img.freepik.com/photos-premium/image-du-web-30-technologie-concept-blockchain-meta-big-data-nuage-services-serveur-ia_1092841-2844.jpg"
-                        alt="Web3 / blockchain illustration" loading="lazy">
-                    <figcaption>Web3 & blockchain concepts.</figcaption>
-                    <button class="add-cart" data-id="p4" data-title="Web3 Blockchain Art" data-price="22">Add to cart —
-                        $22</button>
-                </figure>
-                <figure class="showcase-item">
-                    <img src="https://png.pngtree.com/background/20230419/original/pngtree-website-technology-chip-light-effect-background-picture-image_2448026.jpg"
-                        alt="Tech chip light effect" loading="lazy">
-                    <figcaption>Hardware and chipset visual accents.</figcaption>
-                    <button class="add-cart" data-id="p5" data-title="Chip Light Effect" data-price="12">Add to cart —
-                        $12</button>
-                </figure>
+      <!-- Showcase / Images -->
+      <section class="container showcase reveal" id="showcase" aria-label="Showcase">
+        <h2 class="section-title">Featured visuals</h2>
+        <p class="section-sub">A few snaps from the Techie House community and inspired builds.</p>
+        <div class="showcase-grid">
+          <figure class="showcase-item">
+            <img src="https://www.cnet.com/a/img/resize/455192cc4d6f11c33c5fa2082bc0ad64e2115c6f/hub/2025/10/31/10045e57-2777-4e62-88cd-d990b3cb69f7/gettyimages-2179712111.jpg?auto=webp&fit=crop&height=720&width=1280" alt="Maker workspace with components" loading="lazy">
+            <figcaption>Weekend workspace — soldering and prototyping.</figcaption>
+          </figure>
+          <figure class="showcase-item">
+            <img src="https://img.freepik.com/premium-photo/3d-render-metaverse-technology-background-with-blockchain-network-connections_685067-2639.jpg?w=2000" alt="Abstract metaverse connections illustration" loading="lazy">
+            <figcaption>Futuristic builds and metaverse concepts.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="container features" id="features">
+        <h2 class="section-title">Everything you need</h2>
+        <p class="section-sub">A small set of powerful features that let you focus on product, not plumbing.</p>
+        <div class="cards reveal">
+          <article class="card">
+            <h3>Realtime APIs</h3>
+            <p>Push updates instantly to users with low-latency websockets and pub/sub primitives.</p>
+          </article>
+          <article class="card">
+            <h3>Scalable Infrastructure</h3>
+            <p>Autoscaling compute and global edge delivery so your app stays fast as traffic grows.</p>
+          </article>
+          <article class="card">
+            <h3>Developer Tools</h3>
+            <p>CLI, SDKs, and a local dev environment — fast bootstrapping and smooth CI/CD.</p>
+          </article>
+          <article class="card">
+            <h3>Security & Compliance</h3>
+            <p>Built-in auth, role-based access, and enterprise-grade compliance options.</p>
+        </div>
+      </section>
+
+      <!-- Pricing / Benefits -->
+      <section class="container pricing" id="pricing" aria-label="Pricing">
+  <h2 class="section-title">Simple pricing, flexible plans</h2>
+  <p class="section-sub">Pay for what you use. Start small, scale big.</p>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Starter</h3>
+            <p class="price">Free</p>
+            <ul>
+              <li>Up to 3 projects</li>
+              <li>Community support</li>
+              <li>Basic analytics</li>
+            </ul>
+            <a class="btn btn-primary" href="#get-started">Start Free</a>
+          </div>
+          <div class="price-card popular">
+            <div class="badge">Popular</div>
+            <h3>Pro</h3>
+            <p class="price">$29 / mo</p>
+            <ul>
+              <li>Unlimited projects</li>
+              <li>Realtime APIs & autoscaling</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn btn-primary" href="#get-started">Choose Pro</a>
+          </div>
+          <div class="price-card">
+            <h3>Enterprise</h3>
+            <p class="price">Custom</p>
+            <ul>
+              <li>Dedicated infrastructure</li>
+              <li>Compliance & SSO</li>
+              <li>Account manager</li>
+            </ul>
+            <a class="btn btn-outline" href="#get-started">Contact Sales</a>
+          </div>
+        </div>
+  </section>
+
+  <!-- Testimonials -->
+      <section class="container testimonials" id="testimonials" aria-label="Testimonials">
+        <h2 class="section-title">Community favorites</h2>
+        <p class="section-sub">What makers and nerds say about shopping at Techie House.</p>
+        <div class="flashcards reveal" id="flashcards" aria-live="polite">
+          <article class="flashcard" tabindex="0" aria-label="Testimonial by Priya K.">
+            <div class="face front">
+              <p>"Techie House cut our time-to-market in half. Integrations were frictionless and the realtime APIs just worked."</p>
             </div>
-        </section>
-
-        <!-- Cart drawer -->
-        <aside id="cart-drawer" class="cart-drawer" aria-hidden="true" role="dialog" aria-label="Shopping cart">
-            <header class="cart-header">
-                <strong>Your cart</strong>
-                <button id="cart-close" aria-label="Close cart">✕</button>
-            </header>
-            <div id="cart-items" class="cart-items"></div>
-            <div class="cart-footer">
-                <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
-                <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+            <div class="face back">
+              <p>— Priya K., CTO at Orbit</p>
             </div>
-        </aside>
+          </article>
 
-        <!-- Features -->
-        <section class="container features" id="features" data-section="features">
-            <h2 class="section-title">Everything you need</h2>
-            <p class="section-sub">Curated features that help makers focus on building.</p>
-            <div class="cards reveal">
-                <article class="card" data-xp="10">
-                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=60&auto=format&fit=crop"
-                        alt="Realtime dashboard" loading="lazy">
-                    <h3>Realtime APIs</h3>
-                    <p>Push updates instantly to users with low-latency websockets and pub/sub primitives.</p>
-                </article>
-                <article class="card" data-xp="12">
-                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=800&q=60&auto=format&fit=crop"
-                        alt="Scalable infra" loading="lazy">
-                    <h3>Scalable Infrastructure</h3>
-                    <p>Autoscaling compute and global edge delivery so your app stays fast as traffic grows.</p>
-                </article>
-                <article class="card" data-xp="8">
-                    <img src="https://images.unsplash.com/photo-1581091012184-7a7f2f0d0f6b?w=800&q=60&auto=format&fit=crop"
-                        alt="Developer tools" loading="lazy">
-                    <h3>Developer Tools</h3>
-                    <p>CLI, SDKs, and a local dev environment — fast bootstrapping and smooth CI/CD.</p>
-                </article>
-                <article class="card" data-xp="6">
-                    <img src="https://images.unsplash.com/photo-1581093588401-7c8eaccd6f5c?w=800&q=60&auto=format&fit=crop"
-                        alt="Security" loading="lazy">
-                    <h3>Security & Compliance</h3>
-                    <p>Built-in auth, role-based access, and enterprise-grade compliance options.</p>
-                </article>
+          <article class="flashcard" tabindex="0" aria-label="Testimonial by Marco S.">
+            <div class="face front">
+              <p>"We scaled to tens of thousands of concurrent users without touching infra configs. Huge win for our team."</p>
             </div>
-        </section>
-
-        <!-- Pricing / Benefits -->
-        <section class="container pricing" id="pricing" aria-label="Pricing" data-section="pricing">
-            <h2 class="section-title">Simple pricing, flexible plans</h2>
-            <p class="section-sub">Pay for what you use. Start small, scale big.</p>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <h3>Starter</h3>
-                    <p class="price">Free</p>
-                    <ul>
-                        <li>Up to 3 projects</li>
-                        <li>Community support</li>
-                        <li>Basic analytics</li>
-                    </ul>
-                    <a class="btn btn-primary" href="#get-started">Start Free</a>
-                </div>
-                <div class="price-card popular">
-                    <div class="badge">Popular</div>
-                    <h3>Pro</h3>
-                    <p class="price">$29 / mo</p>
-                    <ul>
-                        <li>Unlimited projects</li>
-                        <li>Realtime APIs & autoscaling</li>
-                        <li>Priority support</li>
-                    </ul>
-                    <a class="btn btn-primary" href="#get-started">Choose Pro</a>
-                </div>
-                <div class="price-card">
-                    <h3>Enterprise</h3>
-                    <p class="price">Custom</p>
-                    <ul>
-                        <li>Dedicated infrastructure</li>
-                        <li>Compliance & SSO</li>
-                        <li>Account manager</li>
-                    </ul>
-                    <a class="btn btn-outline" href="#get-started">Contact Sales</a>
-                </div>
+            <div class="face back">
+              <p>— Marco S., VP Eng at Sprout Labs</p>
             </div>
-        </section>
+          </article>
 
-        <!-- Testimonials -->
-        <section class="container testimonials" id="testimonials" aria-label="Testimonials" data-section="testimonials">
-            <h2 class="section-title">Community favorites</h2>
-            <p class="section-sub">What makers and nerds say about shopping at Techie House.</p>
-            <div class="flashcards reveal" id="flashcards" aria-live="polite">
-                <article class="flashcard" tabindex="0" aria-label="Testimonial by Priya K.">
-                    <div class="face front">
-                        <p>"Techie House cut our time-to-market in half. Integrations were frictionless and the realtime
-                            APIs just worked."</p>
-                    </div>
-                    <div class="face back">
-                        <p>— Priya K., CTO at Orbit</p>
-                    </div>
-                </article>
-
-                <article class="flashcard" tabindex="0" aria-label="Testimonial by Marco S.">
-                    <div class="face front">
-                        <p>"We scaled to tens of thousands of concurrent users without touching infra configs. Huge win
-                            for our team."</p>
-                    </div>
-                    <div class="face back">
-                        <p>— Marco S., VP Eng at Sprout Labs</p>
-                    </div>
-                </article>
-
-                <article class="flashcard" tabindex="0" aria-label="Testimonial by Elena G.">
-                    <div class="face front">
-                        <p>"Top-notch selection, friendly packaging, and the neon stickers made my desk famous."</p>
-                    </div>
-                    <div class="face back">
-                        <p>— Elena G., Hardware Hacker</p>
-                    </div>
-                </article>
+          <article class="flashcard" tabindex="0" aria-label="Testimonial by Elena G.">
+            <div class="face front">
+              <p>"Top-notch selection, friendly packaging, and the neon stickers made my desk famous."</p>
             </div>
-        </section>
-
-        <!-- Get Started / Contact -->
-        <section class="container get-started" id="get-started" aria-label="Get Started">
-            <div class="get-grid">
-                <div>
-                    <h2>Ready to ship?</h2>
-                    <p>Tell us a bit about your project and we'll help you get set up.</p>
-                    <ul class="benefits">
-                        <li>Fast setup with SDKs</li>
-                        <li>Friendly support</li>
-                        <li>Free tier to experiment</li>
-                    </ul>
-                </div>
-                <form id="contact-form" class="contact-form" novalidate>
-                    <label>
-                        Name
-                        <input type="text" name="name" required />
-                    </label>
-                    <label>
-                        Email
-                        <input type="email" name="email" required />
-                    </label>
-                    <label>
-                        Message
-                        <textarea name="message" rows="4"></textarea>
-                    </label>
-                    <div class="form-row">
-                        <button class="btn btn-primary" type="submit">Request Invite</button>
-                        <button class="btn btn-outline" type="button" id="demo-btn">Schedule Demo</button>
-                    </div>
-                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-                </form>
+            <div class="face back">
+              <p>— Elena G., Hardware Hacker</p>
             </div>
-            <div id="badge-area" aria-hidden="true"></div>
-        </section>
+          </article>
+        </div>
+  </section>
 
-        <footer class="site-footer">
-            <div class="container footer-inner">
-                <small>© <span id="year"></span> Techie House — All rights reserved.</small>
-                <nav class="footer-nav">
-                    <a href="#">Terms</a>
-                    <a href="#">Privacy</a>
-                </nav>
+  <!-- Get Started / Contact -->
+      <section class="container get-started" id="get-started" aria-label="Get Started">
+        <div class="get-grid">
+          <div>
+            <h2>Ready to ship?</h2>
+            <p>Tell us a bit about your project and we'll help you get set up.</p>
+            <ul class="benefits">
+              <li>Fast setup with SDKs</li>
+              <li>Friendly support</li>
+              <li>Free tier to experiment</li>
+            </ul>
+          </div>
+          <form id="contact-form" class="contact-form" novalidate>
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="4"></textarea>
+            </label>
+            <div class="form-row">
+              <button class="btn btn-primary" type="submit">Request Invite</button>
+              <button class="btn btn-outline" type="button" id="demo-btn">Schedule Demo</button>
             </div>
-        </footer>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
 
-        <script src="app.clean.js"></script>
-</body>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+  <small>© <span id="year"></span> Techie House — All rights reserved.</small>
+        <nav class="footer-nav">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </nav>
+      </div>
+    </footer>
 
+    <script src="script.js"></script>
+  </body>
 </html>
