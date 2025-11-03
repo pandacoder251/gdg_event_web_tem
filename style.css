@@ -578,6 +578,7 @@ h3 {
 /* Forms and Contact */
 .get-started {
     padding: 3.5rem 0;
+    /* Remove flex-box: wrap; */
 }
 
 .get-grid {
@@ -585,6 +586,16 @@ h3 {
     grid-template-columns: 1fr 420px;
     gap: 2rem;
     align-items: start;
+}
+
+@media (max-width: 720px) {
+    .get-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .contact-form {
+        margin-top: 2rem;
+    }
 }
 
 .contact-form {
@@ -630,6 +641,7 @@ h3 {
     margin-top: .6rem;
     color: var(--accent);
 }
+
 
 @media (max-width:500px) {
     .form-row {
